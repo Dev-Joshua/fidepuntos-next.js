@@ -30,7 +30,7 @@ export default function Navbar() {
             />
           </div>
         </a>
-        <div className='relative flex gap-4'>
+        <div className='relative flex gap-1'>
           {/* Boton idiomas */}
           <button
             type='button'
@@ -93,7 +93,9 @@ export default function Navbar() {
               </ul>
             </div>
           )}
-          <button>
+
+          {/* Boton luna */}
+          <button className='hover:bg-white rounded-xl w-20 flex justify-center items-center '>
             <svg
               className='w-6 h-8 text-yellow-600 dark:text-white'
               aria-hidden='true'
@@ -113,6 +115,7 @@ export default function Navbar() {
 
           {/* Boton menu */}
           <button
+            className='hover:bg-white rounded-xl'
             onClick={toggleMenuDropdown}
             aria-expanded={isMenuDropdownOpen}
             aria-haspopup='true'
@@ -138,7 +141,7 @@ export default function Navbar() {
           {/* Dropdown menu */}
           {isMenuDropdownOpen && (
             <div
-              className='fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-orange-50 dark:bg-colorfondodark w-80 text-xs transform-none'
+              className='fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-orange-50  w-80 text-xs transform-none'
               aria-labelledby='drawer-navigation-label'
               aria-modal='true'
               role='dialog'
