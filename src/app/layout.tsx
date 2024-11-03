@@ -1,4 +1,6 @@
+import Navbar from '@/components/Navbar';
 import { monserrat } from './fonts';
+
 import './globals.css';
 
 export default function RootLayout({
@@ -9,9 +11,13 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        <title>Home - Fidepuntos</title>
+        <title>Fidepuntos</title>
       </head>
-      <body className={`${monserrat.className} antialiased`}>{children}</body>
+
+      <body className={`${monserrat.className} antialiased`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
