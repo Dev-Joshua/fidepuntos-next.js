@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { monserrat } from './fonts';
 
 import './globals.css';
@@ -17,6 +18,7 @@ export default function RootLayout({
         <Navbar />
         <hr className='bg-white pt-px' />
         {children}
+        <Footer />
       </body>
     </html>
   );
