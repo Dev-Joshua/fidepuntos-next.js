@@ -18,8 +18,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className='ml-auto mr-auto p-2 max-w-screen-xl'>
-      <div className='flex justify-between items-center'>
+    <nav
+      className='fixed z-50 ml-auto mr-auto p-2 w-full border-b-2 border-white'
+      style={{ backgroundColor: '#F7F0EA' }}
+    >
+      <div className='flex justify-between mx-auto max-w-screen-xl items-center'>
         <a>
           <div>
             <Image
@@ -51,6 +54,7 @@ export default function Navbar() {
           {/* Dropdown idioma*/}
           {isLanguageDropdownOpen && (
             <div
+              style={{ backdropFilter: 'blur(12px)' }}
               className='absolute z-10 mt-14 w-40 rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
               role='menu'
               aria-orientation='vertical'

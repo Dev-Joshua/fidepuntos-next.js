@@ -1,8 +1,23 @@
+'use client';
+
 import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer>
+    <footer
+      style={{
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        overflow: 'hidden',
+        borderTopLeftRadius: '1rem',
+        borderTopRightRadius: '1rem',
+        backgroundColor: 'rgb(255 255 255 / 0.5)',
+        padding: '1rem',
+        opacity: '1',
+        color: 'rgb(102 102 102 / 1)',
+        marginTop: '10px',
+      }}
+    >
       <div className='max-w-7xl mx-auto divide-y divide-coloruno/50 px-4 sm:px-4 md:px-4 '>
         <div className='flex-none lg:flex'>
           <div className='flex-none lg:w-1/2 lg:flex lg:pb-0 pb-8'>
@@ -36,7 +51,7 @@ export default function Footer() {
               <p className='text-colordos dark:text-colordosdark font-semibold'>
                 Acerca de
               </p>
-              <ul className='space-y-0  text-sm font-semibold'>
+              <ul className='mt-2 space-y-0  text-sm font-semibold'>
                 <li>
                   <a
                     href=''
@@ -172,7 +187,7 @@ export default function Footer() {
               <p className='text-colordos dark:text-colordosdark font-semibold'>
                 Usuario
               </p>
-              <ul className='space-y-0 font-semibold text-sm'>
+              <ul className='mt-2 space-y-0 font-semibold text-sm'>
                 <li>
                   <a
                     href=''
@@ -214,9 +229,9 @@ export default function Footer() {
                       viewBox='0 0 24 24'
                     >
                       <path
-                        fill-rule='evenodd'
+                        fillRule='evenodd'
                         d='M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z'
-                        clip-rule='evenodd'
+                        clipRule='evenodd'
                       />
                     </svg>
 

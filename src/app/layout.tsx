@@ -14,10 +14,10 @@ export default function RootLayout({
       <head>
         <title>Fidepuntos</title>
       </head>
-      <body className={`${monserrat.className} antialiased`}>
+      <body className={`${monserrat.className} antialiased `}>
         <Navbar />
-        <hr className='bg-white pt-px' />
-        {children}
+
+        <main className='pt-24'>{children}</main>
         <Footer />
       </body>
     </html>

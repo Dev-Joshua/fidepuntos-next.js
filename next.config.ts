@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/vendor/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'maqueta.fidepuntos.com.co',
+        port: '',
+        pathname: '/public/img/**',
+      },
     ],
   },
 };
