@@ -15,7 +15,7 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
           selectedTab === 'alojamiento' ? 'block' : 'hidden'
         } p-4 rounded-lg`}
         role='tabpanel'
-        aria-labelledby='profile-tab'
+        aria-labelledby='alojamiento-tab'
       >
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-4 pb-4'>
           <select
@@ -526,7 +526,29 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-4 pb-4'>
           <select
             id='premioFilter'
-            className='fideinput'
+            className=' '
+            style={{
+              display: 'block',
+              width: '100%',
+              appearance: 'none',
+              borderRadius: '0.375rem',
+              borderWidth: '0px',
+              backgroundColor: 'rgb(247 240 234 / 1)',
+              paddingTop: '0.375rem',
+              paddingBottom: '0.375rem',
+              color: 'rgb(34 34 34 / 1)',
+              caretColor: '#B47E0B',
+              boxShadow:
+                'inset 0 0 0 1px rgba(180, 126, 11, 0.5), 0 1px 2px rgba(0, 0, 0, 0.05)',
+              backgroundImage:
+                'url(\'data:image/svg+xml,%3csvg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"%3e %3cpath stroke="%236B7280" stroke-linecap="round" stroke-linejoin="round" stroke-Width="2" d="m1 1 4 4 4-4"/%3e %3c/svg%3e\')',
+              backgroundPosition: 'right 0.75rem center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '0.75em 0.75em',
+              paddingRight: '2.5rem',
+              paddingLeft: '1rem',
+              outline: 'none',
+            }}
           >
             <option value='1'>De menor a mayor</option>
             <option value='2'>De mayor a menor</option>
@@ -539,16 +561,29 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
             <option value='id_lugar_262'>Solamente para Barranquilla</option>
             <option value='id_lugar_280'>Solamente para Cartagena</option>
           </select>
-          <label className='fidelabel text-md'>Ver:</label>
+          <label
+            className='text-md'
+            style={{
+              position: 'absolute',
+              top: '0px',
+              zIndex: -10,
+              transformOrigin: '0',
+              transform: 'translate(0, -1.5rem) scaleX(0.75) scaleY(0.75)',
+              color: 'rgb(180, 126, 11)',
+              transitionDuration: '300ms',
+            }}
+          >
+            Ver:
+          </label>
         </div>
 
         <div className='grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 '>
-          <div className=''>
+          <div className='bg-white rounded-xl flex flex-col justify-center relative'>
             <button
               data-tooltip-target='tooltip-default'
               data-modal-target='bonos-modal'
               data-modal-toggle='bonos-modal'
-              className='boton-blanco absolute m-4'
+              className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
               type='button'
             >
               <svg
@@ -567,17 +602,17 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
               </svg>
             </button>
             <Image
-              className='mb-4 rounded-t-lg w-full'
+              className='mb-4 rounded-t-xl w-full h-80 object-cover'
               src='/bono.jpg'
               alt='product image'
               width={1200}
               height={630}
             />
-            <div className='px-5 pb-5'>
-              <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+            <div className='px-5 pb-5 h-40'>
+              <h3 className='font-medium text-lg h-10 tracking-tight text-yellow-700  '>
                 Bono Consumo $100.000 pesos
               </h3>
-              <div className='flex items-center justify-between'>
+              <div className='flex items-center justify-between mt-4'>
                 <div className='flex items-center mt-1 text-lg font-medium'>
                   <Image
                     className='m-1 h-8 w-8 '
@@ -586,10 +621,10 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
                     width={512}
                     height={512}
                   />
-                  <b>350</b>Puntos
+                  <b className='text-black'>350</b>Puntos
                 </div>
                 <button
-                  className='boton-color'
+                  className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                   type='button'
                 >
                   Redimir
@@ -717,7 +752,29 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-4 pb-4'>
           <select
             id='premioFilter'
-            className='fideinput'
+            className=' '
+            style={{
+              display: 'block',
+              width: '100%',
+              appearance: 'none',
+              borderRadius: '0.375rem',
+              borderWidth: '0px',
+              backgroundColor: 'rgb(247 240 234 / 1)',
+              paddingTop: '0.375rem',
+              paddingBottom: '0.375rem',
+              color: 'rgb(34 34 34 / 1)',
+              caretColor: '#B47E0B',
+              boxShadow:
+                'inset 0 0 0 1px rgba(180, 126, 11, 0.5), 0 1px 2px rgba(0, 0, 0, 0.05)',
+              backgroundImage:
+                'url(\'data:image/svg+xml,%3csvg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"%3e %3cpath stroke="%236B7280" stroke-linecap="round" stroke-linejoin="round" stroke-Width="2" d="m1 1 4 4 4-4"/%3e %3c/svg%3e\')',
+              backgroundPosition: 'right 0.75rem center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '0.75em 0.75em',
+              paddingRight: '2.5rem',
+              paddingLeft: '1rem',
+              outline: 'none',
+            }}
           >
             <option value='1'>De menor a mayor</option>
             <option value='2'>De mayor a menor</option>
@@ -730,16 +787,29 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
             <option value='id_lugar_262'>Solamente para Barranquilla</option>
             <option value='id_lugar_280'>Solamente para Cartagena</option>
           </select>
-          <label className='fidelabel text-md'>Ver:</label>
+          <label
+            className='text-md'
+            style={{
+              position: 'absolute',
+              top: '0px',
+              zIndex: -10,
+              transformOrigin: '0',
+              transform: 'translate(0, -1.5rem) scaleX(0.75) scaleY(0.75)',
+              color: 'rgb(180, 126, 11)',
+              transitionDuration: '300ms',
+            }}
+          >
+            Ver:
+          </label>
         </div>
 
         <div className='grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 '>
-          <div className=''>
+          <div className='bg-white rounded-xl flex flex-col justify-center relative'>
             <button
               data-tooltip-target='tooltip-default'
               data-modal-target='gastro-modal'
               data-modal-toggle='gastro-modal'
-              className='boton-blanco absolute m-4'
+              className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
               type='button'
             >
               <svg
@@ -758,17 +828,17 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
               </svg>
             </button>
             <Image
-              className='mb-4 rounded-t-lg w-full'
+              className='mb-4 rounded-t-xl w-full h-80 object-cover'
               src='https://maqueta.fidepuntos.com.co/public/img/gastro-1.webp'
               alt='product image'
               width={1114}
               height={1240}
             />
-            <div className='px-5 pb-5'>
-              <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+            <div className='px-5 pb-5 h-40'>
+              <h3 className='font-medium text-lg h-20 tracking-tight text-yellow-700  '>
                 Almuerzo/Cena de 3 tiempos para 1 persona
               </h3>
-              <div className='flex items-center justify-between'>
+              <div className='flex items-center justify-between mt-4'>
                 <div className='flex items-center mt-1 text-lg font-medium'>
                   <Image
                     className='m-1 h-8 w-8 '
@@ -777,10 +847,10 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
                     width={512}
                     height={512}
                   />
-                  <b>200</b>Puntos
+                  <b className='text-black'>200</b>Puntos
                 </div>
                 <button
-                  className='boton-color'
+                  className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                   type='button'
                 >
                   Redimir
@@ -898,12 +968,12 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
             </div>
           </div>
 
-          <div className=''>
+          <div className='bg-white rounded-xl flex flex-col justify-center relative'>
             <button
               data-tooltip-target='tooltip-default'
               data-modal-target='gastro-modal'
               data-modal-toggle='gastro-modal'
-              className='boton-blanco absolute m-4'
+              className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
               type='button'
             >
               <svg
@@ -922,17 +992,17 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
               </svg>
             </button>
             <Image
-              className='mb-4 rounded-t-lg w-full'
+              className='mb-4 rounded-t-xl w-full h-80 object-cover'
               src='https://maqueta.fidepuntos.com.co/public/img/gastro-2.webp'
               alt='product image'
               width={740}
               height={525}
             />
-            <div className='px-5 pb-5'>
-              <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+            <div className='px-5 pb-5 h-40'>
+              <h3 className='font-medium text-lg h-20 tracking-tight text-yellow-700  '>
                 Almuerzo/Cena de 3 tiempos para 2 personas
               </h3>
-              <div className='flex items-center justify-between'>
+              <div className='flex items-center justify-between mt-4'>
                 <div className='flex items-center mt-1 text-lg font-medium'>
                   <Image
                     className='m-1 h-8 w-8 '
@@ -941,10 +1011,10 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
                     width={512}
                     height={512}
                   />
-                  <b>350</b>Puntos
+                  <b className='text-black'>350</b>Puntos
                 </div>
                 <button
-                  className='boton-color'
+                  className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                   type='button'
                 >
                   Redimir
@@ -953,12 +1023,12 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
             </div>
           </div>
 
-          <div className=''>
+          <div className='bg-white rounded-xl flex flex-col justify-center relative'>
             <button
               data-tooltip-target='tooltip-default'
               data-modal-target='gastro-modal'
               data-modal-toggle='gastro-modal'
-              className='boton-blanco absolute m-4'
+              className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
               type='button'
             >
               <svg
@@ -977,17 +1047,17 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
               </svg>
             </button>
             <Image
-              className='mb-4 rounded-t-lg w-full'
+              className='mb-4 rounded-t-xl w-full h-80 object-cover'
               src='https://maqueta.fidepuntos.com.co/public/img/gastro-3.webp'
               alt='product image'
               width={740}
               height={525}
             />
-            <div className='px-5 pb-5'>
-              <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+            <div className='px-5 pb-5 h-40'>
+              <h3 className='font-medium text-lg h-20 tracking-tight text-yellow-700  '>
                 Botella de Vino de La Casa
               </h3>
-              <div className='flex items-center justify-between'>
+              <div className='flex items-center justify-between mt-4'>
                 <div className='flex items-center mt-1 text-lg font-medium'>
                   <Image
                     className='m-1 h-8 w-8 '
@@ -996,10 +1066,10 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
                     width={512}
                     height={512}
                   />
-                  <b>600</b>Puntos
+                  <b className='text-black'>600</b>Puntos
                 </div>
                 <button
-                  className='boton-color'
+                  className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                   type='button'
                 >
                   Redimir
@@ -1020,7 +1090,29 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-4 pb-4'>
           <select
             id='premioFilter'
-            className='fideinput'
+            className=' '
+            style={{
+              display: 'block',
+              width: '100%',
+              appearance: 'none',
+              borderRadius: '0.375rem',
+              borderWidth: '0px',
+              backgroundColor: 'rgb(247 240 234 / 1)',
+              paddingTop: '0.375rem',
+              paddingBottom: '0.375rem',
+              color: 'rgb(34 34 34 / 1)',
+              caretColor: '#B47E0B',
+              boxShadow:
+                'inset 0 0 0 1px rgba(180, 126, 11, 0.5), 0 1px 2px rgba(0, 0, 0, 0.05)',
+              backgroundImage:
+                'url(\'data:image/svg+xml,%3csvg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"%3e %3cpath stroke="%236B7280" stroke-linecap="round" stroke-linejoin="round" stroke-Width="2" d="m1 1 4 4 4-4"/%3e %3c/svg%3e\')',
+              backgroundPosition: 'right 0.75rem center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '0.75em 0.75em',
+              paddingRight: '2.5rem',
+              paddingLeft: '1rem',
+              outline: 'none',
+            }}
           >
             <option value='1'>De menor a mayor</option>
             <option value='2'>De mayor a menor</option>
@@ -1033,16 +1125,29 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
             <option value='id_lugar_262'>Solamente para Barranquilla</option>
             <option value='id_lugar_280'>Solamente para Cartagena</option>
           </select>
-          <label className='fidelabel text-md'>Ver:</label>
+          <label
+            className='text-md'
+            style={{
+              position: 'absolute',
+              top: '0px',
+              zIndex: -10,
+              transformOrigin: '0',
+              transform: 'translate(0, -1.5rem) scaleX(0.75) scaleY(0.75)',
+              color: 'rgb(180, 126, 11)',
+              transitionDuration: '300ms',
+            }}
+          >
+            Ver:
+          </label>
         </div>
 
         <div className='grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 '>
-          <div className=''>
+          <div className='bg-white rounded-xl flex flex-col justify-center relative'>
             <button
               data-tooltip-target='tooltip-default'
               data-modal-target='spa-modal'
               data-modal-toggle='spa-modal'
-              className='boton-blanco absolute m-4'
+              className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
               type='button'
             >
               <svg
@@ -1061,17 +1166,17 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
               </svg>
             </button>
             <Image
-              className='mb-4 rounded-t-lg w-full'
+              className='mb-4 rounded-t-xl w-full h-80 object-cover'
               src='/spa-1.jpg'
               alt='product image'
               width={1024}
               height={683}
             />
-            <div className='px-5 pb-5'>
-              <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+            <div className='px-5 pb-5 h-40'>
+              <h3 className='font-medium text-lg h-20 tracking-tight text-yellow-700  '>
                 Masaje de Espalda y hombros(30 Minutos)
               </h3>
-              <div className='flex items-center justify-between'>
+              <div className='flex items-center justify-between mt-4'>
                 <div className='flex items-center mt-1 text-lg font-medium'>
                   <Image
                     className='m-1 h-8 w-8 '
@@ -1080,10 +1185,10 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
                     width={512}
                     height={512}
                   />
-                  <b>200</b>Puntos
+                  <b className='text-black'>200</b>Puntos
                 </div>
                 <button
-                  className='boton-color'
+                  className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                   type='button'
                 >
                   Redimir
@@ -1205,12 +1310,12 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
             </div>
           </div>
 
-          <div className=''>
+          <div className='bg-white rounded-xl flex flex-col justify-center relative'>
             <button
               data-tooltip-target='tooltip-default'
               data-modal-target='spa-modal'
               data-modal-toggle='spa-modal'
-              className='boton-blanco absolute m-4'
+              className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
               type='button'
             >
               <svg
@@ -1229,17 +1334,17 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
               </svg>
             </button>
             <Image
-              className='mb-4 rounded-t-lg w-full'
+              className='mb-4 rounded-t-xl w-full h-80 object-cover'
               src='/spa-2.jpg'
               alt='product image'
               width={750}
               height={500}
             />
-            <div className='px-5 pb-5'>
-              <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+            <div className='px-5 pb-5 h-40'>
+              <h3 className='font-medium text-lg h-20 tracking-tight text-yellow-700 '>
                 Masaje Relax Completo(60 Minutos)
               </h3>
-              <div className='flex items-center justify-between'>
+              <div className='flex items-center justify-between mt-4'>
                 <div className='flex items-center mt-1 text-lg font-medium'>
                   <Image
                     className='m-1 h-8 w-8 '
@@ -1248,10 +1353,10 @@ export default function TabsContent({ selectedTab }: TabContentProps) {
                     width={512}
                     height={512}
                   />
-                  <b>350</b>Puntos
+                  <b className='text-black'>350</b>Puntos
                 </div>
                 <button
-                  className='boton-color'
+                  className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                   type='button'
                 >
                   Redimir
