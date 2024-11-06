@@ -7,6 +7,11 @@ export default function Page() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedTab, setSelectedTab] = useState('alojamiento');
 
+  const handleTabClick = (tab: string) => {
+    setSelectedTab(tab);
+  };
+
+  const [activeIndex, setActiveIndex] = useState(0);
   const images = [
     '/movich-cartagena-servicios-piscina.jpg',
     '/movich-lomas-lobby-d.jpg',
@@ -14,10 +19,6 @@ export default function Page() {
     '/movich-pereira-servicios-piscina.jpg',
     '/SALONES_DE_EVENOS.jpg',
   ];
-
-  const handleTabClick = (tab: string) => {
-    setSelectedTab(tab);
-  };
 
   // Cambiar la imagen cada 3 segundos
   useEffect(() => {
@@ -38,6 +39,44 @@ export default function Page() {
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
+
+  const novedadesImages = [
+    {
+      src: '/novedad-1.jpg',
+      alt: 'Imagen 1',
+      text: 'Ala, ¿Qué hay para hacer en Bogotá?',
+    },
+    {
+      src: '/novedad-2.jpg',
+      alt: 'Imagen 2',
+      text: 'En Las Lomas la naturaleza te saluda',
+    },
+    {
+      src: '/novedad-3.jpg',
+      alt: 'Imagen 3',
+      text: 'Cartagena Histórica, Fantástica',
+    },
+    { src: '/novedad-4.jpg', alt: 'Imagen 4', text: 'Nuestro Aliado' },
+    { src: '/novedad-5.jpg', alt: 'Imagen 5', text: 'Restaurante Ébano' },
+  ];
+
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
+  };
+
+  // Cambio automático de imagen cada 5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 5000); // Cambia cada 5 segundos
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+  }, []);
 
   return (
     <div className='md:grid md:grid-cols-3 container mx-auto p-4 pb-8 md:p-0 md:pb-8'>
@@ -182,193 +221,68 @@ export default function Page() {
             </p>
           </div>
         </div>
-        <h3 className='hidden md:block'>Novedades</h3>
-        <div
-          id='default-carousel'
-          className='relative w-full hidden md:block'
-          data-carousel='slide'
-        >
-          {/* Carousel wrapper */}
-          <div className='relative h-56 overflow-hidden rounded-lg md:h-96'>
-            {/* Item 1 */}
-            <div
-              style={{
-                marginTop: '1rem',
-                marginBottom: '2rem',
-                borderRadius: '0.75rem',
-                backgroundColor: 'rgb(255 255 255 /0.75)',
-                boxShadow: '0 0 #0000, 0 0 #0000',
-              }}
-              className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-10 translate-x-full z-20'
-              data-carousel-item=''
-            >
-              <div className='actividad'>
-                <a href='#'>
-                  <Image
-                    className='rounded-t-xl w-full'
-                    src='/novedad-1.jpg'
-                    alt=''
-                    width={425}
-                    height={280}
-                  />
-                </a>
-                <div className='px-4 py-2'>
-                  <p className='text-md font-medium text-colordos dark:text-colordosdark'>
-                    Ala, ¿Qué hay para hacer en Bogotá?
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Item 2 */}
-            <div
-              className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-20 translate-x-0 z-30'
-              data-carousel-item=''
-            >
+        <h3 className='hidden md:block text-yellow-600 font-medium text-3xl pt-6'>
+          Novedades
+        </h3>
+        <div className='relative w-full hidden md:block'>
+          {/* Carousel Wrapper */}
+          <div className='relative h-56 overflow-hidden rounded-lg md:h-96 pb-10 px-4 py-2 rounded-b-xl'>
+            {novedadesImages.map((image, index) => (
               <div
+                key={index}
+                className={`absolute inset-0 transition-transform duration-700 ease-in-out ${
+                  index === activeIndex
+                    ? 'translate-x-0 z-20'
+                    : 'translate-x-full'
+                }`}
                 style={{
                   marginTop: '1rem',
                   marginBottom: '2rem',
                   borderRadius: '0.75rem',
                   backgroundColor: 'rgb(255 255 255 /0.75)',
                   boxShadow: '0 0 #0000, 0 0 #0000',
+                  height: '50rem',
                 }}
               >
                 <a href='#'>
                   <Image
                     className='rounded-t-xl w-full'
-                    src='/novedad-2.jpg'
-                    alt=''
+                    src={image.src}
+                    alt={image.alt}
                     width={425}
                     height={280}
                   />
                 </a>
-                <div className='px-4 py-2'>
-                  <p className='text-md font-medium text-colordos dark:text-colordosdark'>
-                    En Las Lomas la naturaleza te saluda
+                <div className='px-4 py-2 rounded-b-xl'>
+                  <p className='text-md py-2 font-medium text-black'>
+                    {image.text}
                   </p>
                 </div>
               </div>
-            </div>
-            {/* Item 3 */}
-            <div
-              className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-20 translate-x-0 z-30'
-              data-carousel-item=''
-            >
-              <div
-                className="style={{
-                  marginTop: '1rem',
-                  marginBottom: '2rem',
-                  borderRadius: '0.75rem',
-                  backgroundColor: 'rgb(255 255 255 /0.75)',
-                  boxShadow: '0 0 #0000, 0 0 #0000',
-                }}"
-              >
-                <a href='./novedades.html'>
-                  <Image
-                    className='rounded-t-xl w-full'
-                    src='/novedad-3.jpg'
-                    alt=''
-                    width={425}
-                    height={280}
-                  />
-                </a>
-                <div className='px-4 py-2'>
-                  <p className='text-md font-medium text-colordos dark:text-colordosdark'>
-                    Cartagena Histórica, Fantástica
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Item 4 */}
-            <div
-              className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-30 -translate-x-full z-10 hidden'
-              data-carousel-item=''
-            >
-              <div
-                style={{
-                  marginTop: '1rem',
-                  marginBottom: '2rem',
-                  borderRadius: '0.75rem',
-                  backgroundColor: 'rgb(255 255 255 /0.75)',
-                  boxShadow: '0 0 #0000, 0 0 #0000',
-                }}
-              >
-                <a href='./novedades.html'>
-                  <Image
-                    className='rounded-t-xl w-full'
-                    src='/novedad-4.jpg'
-                    alt=''
-                    width={425}
-                    height={280}
-                  />
-                </a>
-                <div className='px-4 py-2'>
-                  <p className='text-md font-medium text-colordos dark:text-colordosdark'>
-                    Nuestro Aliado
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Item 5 */}
-            <div
-              className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-10 translate-x-full z-20'
-              data-carousel-item=''
-            >
-              <div className='actividad'>
-                <a href='./novedades.html'>
-                  <Image
-                    className='rounded-t-xl w-full'
-                    src='/novedad-5.jpg'
-                    alt=''
-                    width={425}
-                    height={280}
-                  />
-                </a>
-                <div className='px-4 py-2'>
-                  <p className='text-md font-medium text-colordos dark:text-colordosdark'>
-                    Restaurante Ébano
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Slider indicators */}
+          {/* Indicators */}
           <div className='absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse'>
-            <button
-              type='button'
-              className='w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800'
-              aria-current='false'
-              aria-label='Slide 1'
-              data-carousel-slide-to='0'
-            ></button>
-            <button
-              type='button'
-              className='w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800'
-              aria-current='false'
-              aria-label='Slide 2'
-              data-carousel-slide-to='1'
-            ></button>
-            <button
-              type='button'
-              className='w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800'
-              aria-current='false'
-              aria-label='Slide 3'
-              data-carousel-slide-to='2'
-            ></button>
-            <button
-              type='button'
-              className='w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800'
-              aria-current='false'
-              aria-label='Slide 4'
-              data-carousel-slide-to='3'
-            ></button>
+            {images.map((_, index) => (
+              <button
+                key={index}
+                type='button'
+                className={`w-3 h-3 rounded-full ${
+                  index === activeIndex
+                    ? 'bg-white'
+                    : 'bg-white/50 dark:bg-gray-800/50'
+                }`}
+                onClick={() => setActiveIndex(index)}
+              />
+            ))}
           </div>
-          {/* Slider controls */}
+
+          {/* Controls */}
           <button
             type='button'
-            className='absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none'
-            data-carousel-prev=''
+            className='absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none'
+            onClick={handlePrev}
           >
             <span className='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none'>
               <svg
@@ -380,9 +294,9 @@ export default function Page() {
               >
                 <path
                   stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
                   d='M5 1 1 5l4 4'
                 ></path>
               </svg>
@@ -391,8 +305,8 @@ export default function Page() {
           </button>
           <button
             type='button'
-            className='absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none'
-            data-carousel-next=''
+            className='absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none'
+            onClick={handleNext}
           >
             <span className='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none'>
               <svg
@@ -404,9 +318,9 @@ export default function Page() {
               >
                 <path
                   stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
                   d='m1 9 4-4-4-4'
                 ></path>
               </svg>
@@ -538,7 +452,7 @@ export default function Page() {
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
                   viewBox='0 0 24 24'
-                  stroke-width='1.5'
+                  strokeWidth='1.5'
                   stroke='currentColor'
                   className='w-6 h-6'
                 >
@@ -577,13 +491,13 @@ export default function Page() {
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
                   viewBox='0 0 24 24'
-                  stroke-width='1.5'
+                  strokeWidth='1.5'
                   stroke='currentColor'
                   className='w-6 h-6'
                 >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                     d='M12 3.75v16.5M2.25 12h19.5M6.375 17.25a4.875 4.875 0 0 0 4.875-4.875V12m6.375 5.25a4.875 4.875 0 0 1-4.875-4.875V12m-9 8.25h16.5a1.5 1.5 0 0 0 1.5-1.5V5.25a1.5 1.5 0 0 0-1.5-1.5H3.75a1.5 1.5 0 0 0-1.5 1.5v13.5a1.5 1.5 0 0 0 1.5 1.5Zm12.621-9.44c-1.409 1.41-4.242 1.061-4.242 1.061s-.349-2.833 1.06-4.242a2.25 2.25 0 0 1 3.182 3.182ZM10.773 7.63c1.409 1.409 1.06 4.242 1.06 4.242S9 12.22 7.592 10.811a2.25 2.25 0 1 1 3.182-3.182Z'
                   ></path>
                 </svg>
@@ -611,23 +525,23 @@ export default function Page() {
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
                   viewBox='0 0 512 512'
-                  stroke-width='1.5'
+                  strokeWidth='1.5'
                   stroke='currentColor'
                   className='w-6 h-6'
                 >
                   <path
                     fill='none'
                     stroke='currentColor'
-                    stroke-linejoin='round'
-                    stroke-width='24'
+                    strokeLinejoin='round'
+                    strokeWidth='24'
                     d='m57.49 47.74l368.43 368.43a37.28 37.28 0 0 1 0 52.72a37.29 37.29 0 0 1-52.72 0l-90-91.55a32 32 0 0 1-9.2-22.43v-5.53a32 32 0 0 0-9.52-22.78l-11.62-10.73a32 32 0 0 0-29.8-7.44a48.53 48.53 0 0 1-46.56-12.63l-85.43-85.44C40.39 159.68 21.74 83.15 57.49 47.74Z'
                   ></path>
                   <path
                     fill='none'
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='24'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='24'
                     d='m400 32l-77.25 77.25A64 64 0 0 0 304 154.51v14.86a16 16 0 0 1-4.69 11.32L288 192m32 32l11.31-11.31a16 16 0 0 1 11.32-4.69h14.86a64 64 0 0 0 45.26-18.75L480 112m-40-40l-80 80M200 368l-99.72 100.28a40 40 0 0 1-56.56 0h0a40 40 0 0 1 0-56.56L128 328'
                   ></path>
                 </svg>{' '}
@@ -655,7 +569,7 @@ export default function Page() {
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
                   viewBox='0 0 32 32'
-                  stroke-width='0'
+                  strokeWidth='0'
                   stroke='currentColor'
                   className='w-6 h-6'
                 >
@@ -682,15 +596,29 @@ export default function Page() {
           >
             <div className='grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-4 pb-4'>
               <select
+                id='premioFilter'
+                className=' '
                 style={{
                   display: 'block',
                   width: '100%',
+                  appearance: 'none',
                   borderRadius: '0.375rem',
                   borderWidth: '0px',
                   backgroundColor: 'rgb(247 240 234 / 1)',
                   paddingTop: '0.375rem',
                   paddingBottom: '0.375rem',
-                  borderColor: '#B47E0B',
+                  color: 'rgb(34 34 34 / 1)',
+                  caretColor: '#B47E0B',
+                  boxShadow:
+                    'inset 0 0 0 1px rgba(180, 126, 11, 0.5), 0 1px 2px rgba(0, 0, 0, 0.05)',
+                  backgroundImage:
+                    'url(\'data:image/svg+xml,%3csvg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"%3e %3cpath stroke="%236B7280" stroke-linecap="round" stroke-linejoin="round" stroke-Width="2" d="m1 1 4 4 4-4"/%3e %3c/svg%3e\')',
+                  backgroundPosition: 'right 0.75rem center',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: '0.75em 0.75em',
+                  paddingRight: '2.5rem',
+                  paddingLeft: '1rem',
+                  outline: 'none',
                 }}
               >
                 <option value='1'>De menor a mayor</option>
@@ -706,7 +634,20 @@ export default function Page() {
                 </option>
                 <option value='id_lugar_280'>Solamente para Cartagena</option>
               </select>
-              <label className='fidelabel text-md'>Ver:</label>
+              <label
+                className='text-md'
+                style={{
+                  position: 'absolute',
+                  top: '0px',
+                  zIndex: -10,
+                  transformOrigin: '0',
+                  transform: 'translate(0, -1.5rem) scaleX(0.75) scaleY(0.75)',
+                  color: 'rgb(180, 126, 11)',
+                  transitionDuration: '300ms',
+                }}
+              >
+                Ver:
+              </label>
             </div>
 
             <div className='grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4'>
@@ -722,13 +663,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -795,9 +736,9 @@ export default function Page() {
                         >
                           <path
                             stroke='currentColor'
-                            stroke-linecap='round'
-                            stroke-linejoin='round'
-                            stroke-width='2'
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
                             d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'
                           ></path>
                         </svg>
@@ -893,13 +834,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -948,13 +889,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -1003,13 +944,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -1058,13 +999,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -1113,13 +1054,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -1198,13 +1139,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -1267,9 +1208,9 @@ export default function Page() {
                         >
                           <path
                             stroke='currentColor'
-                            stroke-linecap='round'
-                            stroke-linejoin='round'
-                            stroke-width='2'
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
                             d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'
                           ></path>
                         </svg>
@@ -1392,13 +1333,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -1463,9 +1404,9 @@ export default function Page() {
                         >
                           <path
                             stroke='currentColor'
-                            stroke-linecap='round'
-                            stroke-linejoin='round'
-                            stroke-width='2'
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
                             d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'
                           ></path>
                         </svg>
@@ -1558,13 +1499,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -1613,13 +1554,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -1698,13 +1639,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>
@@ -1766,9 +1707,9 @@ export default function Page() {
                         >
                           <path
                             stroke='currentColor'
-                            stroke-linecap='round'
-                            stroke-linejoin='round'
-                            stroke-width='2'
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
                             d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'
                           ></path>
                         </svg>
@@ -1870,13 +1811,13 @@ export default function Page() {
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
-                    stroke-width='1.5'
+                    strokeWidth='1.5'
                     stroke='currentColor'
                     className='size-6'
                   >
                     <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                       d='M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
                     ></path>
                   </svg>

@@ -63,6 +63,7 @@ export default function Page() {
                       borderWidth: '1px',
                       borderRadius: '5px',
                       outline: 'none',
+                      paddingLeft: '10px',
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = '#ca8a04';
@@ -91,6 +92,7 @@ export default function Page() {
                       borderWidth: '1px',
                       borderRadius: '5px',
                       outline: 'none',
+                      paddingLeft: '10px',
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = '#ca8a04';
