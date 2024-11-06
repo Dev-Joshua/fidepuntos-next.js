@@ -61,7 +61,7 @@ export default function Page() {
             </p>
             <div className='w-full text-sm py-6'>
               <div className='justify-stretch'>
-                <div className='w-full text-colordos dark:text-colordosdark font-bold'>
+                <div className='w-full font-bold'>
                   Mayo
                   <span className='text-yellow-600'>2024</span>
                 </div>
@@ -229,12 +229,12 @@ export default function Page() {
             </div>
 
             <div className='grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4'>
-              <div className='cajaPremio'>
+              <div className='bg-white rounded-xl flex flex-col justify-center relative'>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='medium-modal'
                   data-modal-toggle='medium-modal'
-                  className='boton-blanco absolute m-4'
+                  className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
                   type='button'
                 >
                   <svg
@@ -253,30 +253,30 @@ export default function Page() {
                   </svg>
                 </button>
                 <Image
-                  className='mb-4 rounded-t-lg w-full'
+                  className='mb-4 rounded-t-xl w-full h-80 object-cover'
                   src='/movich-buro-habitacion-estandar-superior-queen-b.jpg'
                   alt='product image'
                   width={700}
                   height={467}
                 />
-                <div className='px-5 pb-5'>
-                  <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+                <div className='px-5 pb-5 h-40'>
+                  <h3 className='font-medium text-lg h-20 tracking-tight text-yellow-700 '>
                     Noche de alojamiento en habitación Superior Movich Casa del
                     Alferez
                   </h3>
-                  <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                  <div className='flex items-center justify-between mt-4'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
-                        className='m-1 h-8 w-8 '
+                        className='m-1 h-8 w-8'
                         src='/Punto.png'
                         alt='icono-puntos'
                         width={32}
                         height={32}
                       />
-                      <b>800</b>Puntos
+                      <b className='text-black'>800</b>Puntos
                     </div>
                     <button
-                      className='boton-color'
+                      className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                       type='button'
                     >
                       Redimir
@@ -328,7 +328,7 @@ export default function Page() {
                       <div className='flex flex-row space-x-4'>
                         <div className='basis-1/3 w-full '>
                           <Image
-                            className='mb-4 rounded-lg'
+                            className='mb-4 rounded-lg h-80 object-cover'
                             src='/hab-1.jpg'
                             alt='product image'
                             width={700}
@@ -378,7 +378,7 @@ export default function Page() {
                         <div className='flex items-center text-colordos dark:text-colordosdark text-lg'>
                           Redimir con
                           <Image
-                            className='m-1 h-8 w-8 object-cover'
+                            className='m-1 h-8 w-8'
                             src='/Punto.png'
                             alt='icono-puntos'
                             width={32}
@@ -400,12 +400,12 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className='cajaPremio'>
+              <div className='bg-white rounded-xl flex flex-col justify-center relative'>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='medium-modal'
                   data-modal-toggle='medium-modal'
-                  className='boton-blanco absolute m-4'
+                  className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
                   type='button'
                 >
                   <svg
@@ -424,18 +424,18 @@ export default function Page() {
                   </svg>
                 </button>
                 <Image
-                  className='mb-4 rounded-t-lg w-full'
+                  className='mb-4 rounded-t-xl w-full h-80 object-cover'
                   src='/hab-2.jpg'
                   alt='product image'
                   width={327}
                   height={218}
                 />
-                <div className='px-5 pb-5'>
-                  <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+                <div className='h-40 px-5 pb-5'>
+                  <h3 className='font-medium text-lg h-20 tracking-tight text-yellow-700 '>
                     Upgrade Superior a Suite por una noche
                   </h3>
-                  <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                  <div className='flex items-center justify-between mt-4'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -443,10 +443,10 @@ export default function Page() {
                         width={32}
                         height={32}
                       />
-                      <b>250</b>Puntos
+                      <b className='text-black'>250</b>Puntos
                     </div>
                     <button
-                      className='boton-color'
+                      className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                       type='button'
                     >
                       Redimir
@@ -455,12 +455,12 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className='cajaPremio'>
+              <div className='bg-white rounded-xl flex flex-col justify-center relative'>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='medium-modal'
                   data-modal-toggle='medium-modal'
-                  className='boton-blanco absolute m-4'
+                  className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
                   type='button'
                 >
                   <svg
@@ -479,18 +479,18 @@ export default function Page() {
                   </svg>
                 </button>
                 <Image
-                  className='mb-4 rounded-t-lg w-full'
+                  className='mb-4 rounded-t-xl w-full h-80 object-cover'
                   src='/hab-3.jpg'
                   alt='product image'
                   width={327}
                   height={179}
                 />
-                <div className='px-5 pb-5'>
-                  <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+                <div className='h-40 px-5 pb-5'>
+                  <h3 className='font-medium text-lg h-20 tracking-tight text-yellow-700 '>
                     Upgrade standard-superior por una noche
                   </h3>
-                  <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                  <div className='flex items-center justify-between mt-4'>
+                    <div className='flex items-center mt-1 text-lg font-medium '>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -498,10 +498,10 @@ export default function Page() {
                         width={32}
                         height={32}
                       />
-                      <b>300</b>Puntos
+                      <b className='text-black'>300</b>Puntos
                     </div>
                     <button
-                      className='boton-color'
+                      className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                       type='button'
                     >
                       Redimir
@@ -510,12 +510,12 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className='cajaPremio'>
+              <div className='bg-white rounded-xl flex flex-col justify-center relative'>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='medium-modal'
                   data-modal-toggle='medium-modal'
-                  className='boton-blanco absolute m-4'
+                  className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
                   type='button'
                 >
                   <svg
@@ -534,18 +534,18 @@ export default function Page() {
                   </svg>
                 </button>
                 <Image
-                  className='mb-4 rounded-t-lg w-full'
+                  className='mb-4 rounded-t-xl w-full h-80 object-cover'
                   src='/hab-1.jpg'
                   alt='product image'
                   width={327}
                   height={218}
                 />
-                <div className='px-5 pb-5'>
-                  <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+                <div className='h-40 px-5 pb-5'>
+                  <h3 className='font-medium text-lg h-20 tracking-tight text-yellow-700'>
                     Upgrade standard-suite por una noche
                   </h3>
-                  <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                  <div className='flex items-center justify-between mt-4'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -553,10 +553,10 @@ export default function Page() {
                         width={32}
                         height={32}
                       />
-                      <b>550</b>Puntos
+                      <b className='text-black'>550</b>Puntos
                     </div>
                     <button
-                      className='boton-color'
+                      className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                       type='button'
                     >
                       Redimir
@@ -565,12 +565,12 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className='cajaPremio'>
+              <div className='bg-white rounded-xl flex flex-col justify-center relative'>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='medium-modal'
                   data-modal-toggle='medium-modal'
-                  className='boton-blanco absolute m-4'
+                  className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
                   type='button'
                 >
                   <svg
@@ -589,18 +589,18 @@ export default function Page() {
                   </svg>
                 </button>
                 <Image
-                  className='mb-4 rounded-t-lg w-full'
+                  className='mb-4 rounded-t-xl w-full h-80 object-cover'
                   src='/movich-buro-habitacion-estandar-superior-queen-b.jpg'
                   alt='product image'
                   width={327}
                   height={327}
                 />
-                <div className='px-5 pb-5'>
-                  <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+                <div className='h-40 px-5 pb-5'>
+                  <h3 className='font-medium text-lg tracking-tight text-yellow-700 h-20 '>
                     Noche de alojamiento en hab. Estandar Movich Las Lomas
                   </h3>
-                  <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                  <div className='flex items-center justify-between mt-4'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -608,10 +608,10 @@ export default function Page() {
                         width={32}
                         height={32}
                       />
-                      <b>550</b>Puntos
+                      <b className='text-black'>550</b>Puntos
                     </div>
                     <button
-                      className='boton-color'
+                      className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                       type='button'
                     >
                       Redimir
@@ -620,12 +620,12 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className='cajaPremio'>
+              <div className='bg-white rounded-xl flex flex-col justify-center relative'>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='medium-modal'
                   data-modal-toggle='medium-modal'
-                  className='boton-blanco absolute m-4'
+                  className='rounded-full border border-[#B47E0B] bg-white px-5 py-2 font-semibold text-[#B47E0B] transition-colors duration-300 ease-in-out absolute top-0  m-4'
                   type='button'
                 >
                   <svg
@@ -644,18 +644,18 @@ export default function Page() {
                   </svg>
                 </button>
                 <Image
-                  className='mb-4 rounded-t-lg w-full'
+                  className='mb-4 rounded-t-xl w-full h-80 object-cover'
                   src='/movich-buro-habitacion-estandar-superior-queen-b.jpg'
                   alt='product image'
                   width={327}
                   height={327}
                 />
-                <div className='px-5 pb-5'>
-                  <h3 className='text-xl tracking-tight text-coloruno dark:text-colorunodark '>
+                <div className='h-40 px-5 pb-5'>
+                  <h3 className='font-medium text-lg tracking-tight text-yellow-700 h-20 '>
                     Noche de alojamiento en hab. Estandar Movich Pereira
                   </h3>
-                  <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                  <div className='flex items-center justify-between mt-4'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -663,10 +663,10 @@ export default function Page() {
                         width={32}
                         height={32}
                       />
-                      <b>550</b>Puntos
+                      <b className='text-black'>550</b>Puntos
                     </div>
                     <button
-                      className='boton-color'
+                      className='text-base hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
                       type='button'
                     >
                       Redimir
@@ -705,7 +705,7 @@ export default function Page() {
             </div>
 
             <div className='grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 '>
-              <div className='cajaPremio'>
+              <div className=''>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='bonos-modal'
@@ -740,7 +740,7 @@ export default function Page() {
                     Bono Consumo $100.000 pesos
                   </h3>
                   <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -808,7 +808,7 @@ export default function Page() {
                           />
                         </div>
                         <div className='basis-2/3 w-full '>
-                          <h4 className=' text-colordos dark:text-colordosdark'>
+                          <h4 className=''>
                             Disfrute de nuestra carta en cualquiera de nuestros
                             restaurantes a nivel nacional por un consumo de
                             $100.000.
@@ -844,7 +844,7 @@ export default function Page() {
                     {/* <!-- Modal footer --> */}
                     <div className=' p-4 md:p-5 border-t  rounded-b border-colordosdark dark:border-colordos'>
                       <div className='flex items-center justify-between'>
-                        <div className='flex items-center text-colordos dark:text-colordosdark text-lg'>
+                        <div className='flex items-center text-lg'>
                           Redimir con
                           <Image
                             className='m-1 h-8 w-8 object-cover'
@@ -899,7 +899,7 @@ export default function Page() {
             </div>
 
             <div className='grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 '>
-              <div className='cajaPremio'>
+              <div className=''>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='gastro-modal'
@@ -934,7 +934,7 @@ export default function Page() {
                     Almuerzo/Cena de 3 tiempos para 1 persona
                   </h3>
                   <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -1004,7 +1004,7 @@ export default function Page() {
                           />
                         </div>
                         <div className='basis-2/3 w-full '>
-                          <h4 className=' text-colordos dark:text-colordosdark'>
+                          <h4 className=''>
                             Disfrute de un Almuerzo o Cena sugerencia del chef,
                             de 3 tiempos para una (1) persona.
                           </h4>
@@ -1040,7 +1040,7 @@ export default function Page() {
                     {/* <!-- Modal footer --> */}
                     <div className=' p-4 md:p-5 border-t  rounded-b border-colordosdark dark:border-colordos'>
                       <div className='flex items-center justify-between'>
-                        <div className='flex items-center text-colordos dark:text-colordosdark text-lg'>
+                        <div className='flex items-center text-lg'>
                           Redimir con
                           <Image
                             className='m-1 h-8 w-8 object-cover'
@@ -1065,7 +1065,7 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className='cajaPremio'>
+              <div className=''>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='gastro-modal'
@@ -1100,7 +1100,7 @@ export default function Page() {
                     Almuerzo/Cena de 3 tiempos para 2 personas
                   </h3>
                   <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -1120,7 +1120,7 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className='cajaPremio'>
+              <div className=''>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='gastro-modal'
@@ -1155,7 +1155,7 @@ export default function Page() {
                     Botella de Vino de La Casa
                   </h3>
                   <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -1205,7 +1205,7 @@ export default function Page() {
             </div>
 
             <div className='grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 '>
-              <div className='cajaPremio'>
+              <div className=''>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='spa-modal'
@@ -1240,7 +1240,7 @@ export default function Page() {
                     Masaje de Espalda y hombros(30 Minutos)
                   </h3>
                   <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
@@ -1307,7 +1307,7 @@ export default function Page() {
                           />
                         </div>
                         <div className='basis-2/3 w-full '>
-                          <h4 className=' text-colordos dark:text-colordosdark'>
+                          <h4 className=''>
                             Disfrute de un masaje para espalda y hombros de 30
                             minutos de duracion para una(1)persona. Valido para
                             redimir en cualquiera de nuestros hoteles que tengan
@@ -1352,7 +1352,7 @@ export default function Page() {
 
                     <div className=' p-4 md:p-5 border-t  rounded-b border-colordosdark dark:border-colordos'>
                       <div className='flex items-center justify-between'>
-                        <div className='flex items-center text-colordos dark:text-colordosdark text-lg'>
+                        <div className='flex items-center text-lg'>
                           Redimir con
                           <Image
                             className='m-1 h-8 w-8 object-cover'
@@ -1377,7 +1377,7 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className='cajaPremio'>
+              <div className=''>
                 <button
                   data-tooltip-target='tooltip-default'
                   data-modal-target='spa-modal'
@@ -1412,7 +1412,7 @@ export default function Page() {
                     Masaje Relax Completo(60 Minutos)
                   </h3>
                   <div className='flex items-center justify-between'>
-                    <div className='flex items-center mt-1 text-lg font-medium text-colordos dark:text-colordosdark'>
+                    <div className='flex items-center mt-1 text-lg font-medium'>
                       <Image
                         className='m-1 h-8 w-8 '
                         src='/Punto.png'
