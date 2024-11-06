@@ -1,10 +1,48 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Page() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedTab, setSelectedTab] = useState('alojamiento');
+
+  const images = [
+    '/movich-cartagena-servicios-piscina.jpg',
+    '/movich-lomas-lobby-d.jpg',
+    '/movich-lomas-servicios-piscina.jpg',
+    '/movich-pereira-servicios-piscina.jpg',
+    '/SALONES_DE_EVENOS.jpg',
+  ];
+
+  const handleTabClick = (tab: string) => {
+    setSelectedTab(tab);
+  };
+
+  // Cambiar la imagen cada 3 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Cambiar el tiempo en milisegundos
+
+    return () => clearInterval(interval); // Limpiar el intervalo al desmontar
+  }, [images.length]);
+
+  // Funciones para cambiar manualmente la imagen
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
   return (
     <div className='md:grid md:grid-cols-3 container mx-auto p-4 pb-8 md:p-0 md:pb-8'>
       {/* Columna derecha */}
-      <div className='col-span-1 md:order-2 md:mx-4 space-y-4'>
+      <div className='pt-12 col-span-1 md:order-2 md:mx-4 space-y-4'>
         <div className="mx-auto overflow-hidden rounded-2xl bg-[rgba(180,126,11,var(--tw-bg-opacity))] mb-4 bg-cover bg-bottom p-4 text-white bg-[url('https://maqueta.fidepuntos.com.co/public/img/textura.svg')">
           <h1 className='text-center text-6xl font-bold'>5000</h1>
           <div className='flex justify-center items-center'>
@@ -378,129 +416,56 @@ export default function Page() {
         </div>
       </div>
 
-      {/* Columna izquierda */}
-      <div className='col-span-2 md:order-1'>
-        <div className='mx-auto mb-4 flex overflow-hidden rounded-lg bg-white/75 text-gray-600'>
-          <div
-            id='default-carousel'
-            className='relative w-full'
-            data-carousel='slide'
-          >
-            {/* Carousel wrapper */}
+      {/* Grrilla izquierda */}
+      <div className='col-span-2 md:order-1 pt-12 '>
+        <div className='mx-auto mb-4 flex overflow-hidden rounded-2xl bg-white/75 text-gray-600 '>
+          <div className='relative w-full'>
             <div className='relative h-56 overflow-hidden rounded-lg md:h-96'>
-              {/* Item 1 */}
-              <div
-                className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-20 translate-x-0 z-30'
-                data-carousel-item=''
-              >
-                <Image
-                  src='/movich-cartagena-servicios-piscina.jpg'
-                  className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
-                  alt='...'
-                  width={800}
-                  height={600}
-                />
-              </div>
-              {/* Item 2 */}
-              <div
-                className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-10 translate-x-full z-20'
-                data-carousel-item=''
-              >
-                <Image
-                  src='/movich-lomas-lobby-d.jpg'
-                  className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
-                  alt='...'
-                  width={800}
-                  height={600}
-                />
-              </div>
-              {/* Item 3 */}
-              <div
-                className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-30 -translate-x-full z-10 hidden'
-                data-carousel-item=''
-              >
-                <Image
-                  src='/movich-lomas-servicios-piscina.jpg'
-                  className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
-                  alt='...'
-                  width={800}
-                  height={600}
-                />
-              </div>
-              {/* Item 4 */}
-              <div
-                className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-30 -translate-x-full z-10 hidden'
-                data-carousel-item=''
-              >
-                <Image
-                  src='/movich-pereira-servicios-piscina.jpg'
-                  className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
-                  alt='...'
-                  width={800}
-                  height={600}
-                />
-              </div>
-              {/* Item 5 */}
-              <div
-                className='duration-700 ease-in-out absolute inset-0 transition-transform transform z-30 -translate-x-full z-10'
-                data-carousel-item=''
-              >
-                <Image
-                  src='/SALONES_DE_EVENOS.jpg'
-                  className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
-                  alt='...'
-                  width={800}
-                  height={600}
-                />
-              </div>
+              {images.map((src, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-transform duration-700 ease-in-out transform ${
+                    index === currentIndex
+                      ? 'translate-x-0 z-30'
+                      : 'translate-x-full z-10'
+                  }`}
+                  style={{
+                    visibility: index === currentIndex ? 'visible' : 'hidden',
+                  }}
+                >
+                  <Image
+                    src={src}
+                    className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
+                    alt={`Slide ${index + 1}`}
+                    width={800}
+                    height={600}
+                  />
+                </div>
+              ))}
             </div>
-            {/* Slider indicators */}
-            <div className='absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse'>
-              <button
-                type='button'
-                className='w-3 h-3 rounded-full bg-white dark:bg-gray-800'
-                aria-current='true'
-                aria-label='Slide 1'
-                data-carousel-slide-to='0'
-              ></button>
-              <button
-                type='button'
-                className='w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800'
-                aria-current='false'
-                aria-label='Slide 2'
-                data-carousel-slide-to='1'
-              ></button>
-              <button
-                type='button'
-                className='w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800'
-                aria-current='false'
-                aria-label='Slide 3'
-                data-carousel-slide-to='2'
-              ></button>
-              <button
-                type='button'
-                className='w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800'
-                aria-current='false'
-                aria-label='Slide 4'
-                data-carousel-slide-to='3'
-              ></button>
-              <button
-                type='button'
-                className='w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800'
-                aria-current='false'
-                aria-label='Slide 5'
-                data-carousel-slide-to='4'
-              ></button>
+
+            {/* Indicadores */}
+            <div className='absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3'>
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-3 h-3 rounded-full ${
+                    currentIndex === index ? 'bg-white' : 'bg-white/50'
+                  }`}
+                  aria-label={`Slide ${index + 1}`}
+                ></button>
+              ))}
             </div>
-            {/* Slider controls */}
+
+            {/* Controles de navegación */}
             <button
-              type='button'
+              onClick={prevSlide}
               className='absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none'
-              data-carousel-prev
             >
-              <span className='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none'>
+              <span className='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50'>
                 <svg
-                  className='w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180'
+                  className='w-4 h-4 text-white'
                   aria-hidden='true'
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -508,9 +473,9 @@ export default function Page() {
                 >
                   <path
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
                     d='M5 1 1 5l4 4'
                   ></path>
                 </svg>
@@ -518,13 +483,12 @@ export default function Page() {
               </span>
             </button>
             <button
-              type='button'
+              onClick={nextSlide}
               className='absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none'
-              data-carousel-next
             >
-              <span className='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none'>
+              <span className='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50'>
                 <svg
-                  className='w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180'
+                  className='w-4 h-4 text-white'
                   aria-hidden='true'
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -532,9 +496,9 @@ export default function Page() {
                 >
                   <path
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
                     d='m1 9 4-4-4-4'
                   ></path>
                 </svg>
@@ -543,7 +507,8 @@ export default function Page() {
             </button>
           </div>
         </div>
-        <div className='rounded-t-lg mb-4 border-b border-coloruno dark:border-colorunodark'>
+
+        <div className='rounded-t-lg mb-4 border-b border-yellow-600'>
           <ul
             className='flex flex-wrap -mb-px text-sm font-medium text-center'
             id='default-styled-tab'
@@ -557,13 +522,17 @@ export default function Page() {
               role='alojamiento'
             >
               <button
-                className='inline-block p-4 rounded-t-lg hover:text-colordos hover:bg-gray-50 dark:hover:bg-black/50 dark:hover:text-colordosdark text-colordosdark hover:text-coloruno dark:text-colordosdark dark:hover:text-colorunodark bg-coloruno'
-                id='profile-styled-tab'
-                data-tabs-target='#styled-profile'
+                onClick={() => handleTabClick('alojamiento')}
+                className={`inline-block p-4 rounded-t-xl font-semibold 
+              ${
+                selectedTab === 'alojamiento'
+                  ? 'bg-yellow-600 text-white'
+                  : 'hover:bg-gray-50 text-yellow-700'
+              } 
+              dark:hover:bg-black/50 dark:hover:text-colordosdark`}
                 type='button'
                 role='tab'
-                aria-controls='profile'
-                aria-selected='true'
+                aria-selected={selectedTab === 'alojamiento'}
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -592,13 +561,17 @@ export default function Page() {
               role='bonos'
             >
               <button
-                className='inline-block p-4 rounded-t-lg hover:text-colordos hover:bg-gray-50 dark:hover:bg-black/50 dark:hover:text-colordosdark text-coloruno dark:text-colorunodark hover:text-colortres dark:colorunodark dark:hover:text-gray-300'
-                id='dashboard-styled-tab'
-                data-tabs-target='#styled-dashboard'
+                onClick={() => handleTabClick('bonos')}
+                className={`inline-block p-4 rounded-t-xl font-semibold 
+              ${
+                selectedTab === 'bonos'
+                  ? 'bg-yellow-600 text-white'
+                  : 'hover:bg-gray-50 text-yellow-700'
+              } 
+              dark:hover:bg-black/50 dark:hover:text-colordosdark`}
                 type='button'
                 role='tab'
-                aria-controls='dashboard'
-                aria-selected='false'
+                aria-selected={selectedTab === 'bonos'}
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -622,13 +595,17 @@ export default function Page() {
               role='gastronomia'
             >
               <button
-                className='inline-block p-4 rounded-t-lg hover:text-colordos hover:bg-gray-50 dark:hover:bg-black/50 dark:hover:text-colordosdark text-coloruno dark:text-colorunodark hover:text-colortres dark:colorunodark dark:hover:text-gray-300'
-                id='settings-styled-tab'
-                data-tabs-target='#styled-settings'
+                onClick={() => handleTabClick('gastronomia')}
+                className={`inline-block p-4 rounded-t-xl font-semibold 
+              ${
+                selectedTab === 'gastronomia'
+                  ? 'bg-yellow-600 text-white'
+                  : 'hover:bg-gray-50 text-yellow-700'
+              } 
+              dark:hover:bg-black/50 dark:hover:text-colordosdark`}
                 type='button'
                 role='tab'
-                aria-controls='settings'
-                aria-selected='false'
+                aria-selected={selectedTab === 'gastronomia'}
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -662,13 +639,17 @@ export default function Page() {
               role='spa'
             >
               <button
-                className='inline-block p-4 rounded-t-lg hover:text-colordos hover:bg-gray-50 dark:hover:bg-black/50 dark:hover:text-colordosdark text-coloruno dark:text-colorunodark hover:text-colortres dark:colorunodark dark:hover:text-gray-300'
-                id='contacts-styled-tab'
-                data-tabs-target='#styled-contacts'
+                onClick={() => handleTabClick('spa')}
+                className={`inline-block p-4 rounded-t-xl font-semibold 
+              ${
+                selectedTab === 'spa'
+                  ? 'bg-yellow-600 text-white'
+                  : 'hover:bg-gray-50 text-yellow-700'
+              } 
+              dark:hover:bg-black/50 dark:hover:text-colordosdark`}
                 type='button'
                 role='tab'
-                aria-controls='contacts'
-                aria-selected='false'
+                aria-selected={selectedTab === 'spa'}
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -688,6 +669,7 @@ export default function Page() {
             </li>
           </ul>
         </div>
+
         <div
           id='default-styled-tab-content'
           className='w-full'
