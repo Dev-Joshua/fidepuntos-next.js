@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Page() {
   return (
@@ -110,25 +111,29 @@ export default function Page() {
                 </div>
               </div>
               <div>
-                <button
-                  type='submit'
-                  className='w-full text-lg hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
-                >
-                  Iniciar Sesión
-                </button>
+                <Link href='/home'>
+                  <button
+                    type='submit'
+                    className='w-full text-lg hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 font-semibold text-white transition duration-300'
+                  >
+                    Iniciar Sesión
+                  </button>
+                </Link>
               </div>
             </form>
             <p className='pt-10  text-center text-sm'>
               ¿No tienes una cuenta? Registrate:
             </p>
-            <div>
-              <button
-                type='submit'
-                className='mt-3 w-full text-lg hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-white px-5 py-2 font-semibold text-yellow-600 transition duration-300'
-              >
-                Crear una cuenta
-              </button>
-            </div>
+            <Link href='/register'>
+              <div>
+                <button
+                  type='submit'
+                  className='mt-3 w-full text-lg hover:bg-opacity-10 hover:text-yellow-600 rounded-full border border-yellow-600 bg-white px-5 py-2 font-semibold text-yellow-600 transition duration-300'
+                >
+                  Crear una cuenta
+                </button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

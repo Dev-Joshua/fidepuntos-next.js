@@ -211,7 +211,7 @@ export default function Footer() {
                       />
                     </svg>
 
-                    <span className='ms-2 uppercase'>Inicias Sesión</span>
+                    <span className='ms-2 uppercase'>Iniciar Sesión</span>
                   </a>
                 </li>
                 <li>
@@ -263,7 +263,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className='mt-4 pt-4'>
+        <div className='mt-4 pt-4 border-yellow-600'>
           <span className='text-sm  text-colortres sm:text-center dark:text-colortresdark'>
             © 2024 <a className='hover:underline'>MovichDreams</a>. Todos los
             derechos reservados.

@@ -181,7 +181,10 @@ export default function Navbar() {
               <div className='py-2 overflow-y-auto '>
                 <ul className='py-1'>
                   <li>
-                    <a className='flex items-center gap-4 font-semibold px-4 py-4 text-sm text-gray-700 '>
+                    <a
+                      href='/home'
+                      className='flex items-center gap-4 font-semibold px-4 py-4 text-sm text-gray-700 '
+                    >
                       <svg
                         className='w-6 h-6 0 dark:text-white text-yellow-600'
                         aria-hidden='true'
@@ -197,7 +200,10 @@ export default function Navbar() {
                     </a>
                   </li>
                   <li>
-                    <a className='flex gap-4 font-semibold px-4 py-4 text-sm text-gray-700 items-center'>
+                    <a
+                      href='/quees'
+                      className='flex gap-4 font-semibold px-4 py-4 text-sm text-gray-700 items-center'
+                    >
                       <svg
                         className='w-6 h-6 text-yellow-600 dark:text-white '
                         aria-hidden='true'
@@ -217,7 +223,10 @@ export default function Navbar() {
                     </a>
                   </li>
                   <li>
-                    <a className='flex items-center gap-4 font-semibold px-4 py-4 text-sm text-gray-700'>
+                    <a
+                      href='/comofunciona'
+                      className='flex items-center gap-4 font-semibold px-4 py-4 text-sm text-gray-700'
+                    >
                       <svg
                         className='w-6 h-6 text-yellow-600 dark:text-white'
                         aria-hidden='true'
