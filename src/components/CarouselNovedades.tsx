@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function CarouselNovedades() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  // Usando Reac y Hooks realizo el comportamiento del carousel con useEffect.
+  const [activeIndex, setActiveIndex] = useState(0); //activeIndes es el estado que guarda el indice de la imagen prev o next
   const novedadesImages = [
     {
       src: '/novedad-1.jpg',
@@ -25,6 +26,7 @@ export default function CarouselNovedades() {
     { src: '/novedad-5.jpg', alt: 'Imagen 5', text: 'Restaurante Ébano' },
   ];
 
+  //Funciones que actualizan el activeIndex
   const handleNext = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % novedadesImages.length);
   };
@@ -40,7 +42,7 @@ export default function CarouselNovedades() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 5000); // Cambia cada 5 segundos
+    }, 5000);
     return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, []);
 

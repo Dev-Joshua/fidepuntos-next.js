@@ -1,9 +1,11 @@
 'use client';
 
+// Utilizo los hooks de React para cambio automatico y navegacion manual
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Carousel() {
+  // Estado del indice currentIntex para la posicion de la imagen
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
     '/movich-cartagena-servicios-piscina.jpg',
@@ -17,7 +19,7 @@ export default function Carousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Cambiar el tiempo en milisegundos
+    }, 3000); // tiempo en milisegundos
 
     return () => clearInterval(interval); // Limpiar el intervalo al desmontar
   }, [images.length]);

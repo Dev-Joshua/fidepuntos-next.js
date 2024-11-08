@@ -1,11 +1,11 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 
+// Mediante el sistema de archivos de NextJs, cada archivo page.tsx dentro de una carpeta se convierte en una ruta
 export default function Page() {
   return (
     <div className='bg-center bg-cover py-5  mx-auto  relative'>
+      {/* Utilizo componente Image para optimizar imagenes */}
       <Image
         className='rounded-2xl object-cover w-full h-screen'
         src='https://cdn0.matrimonio.com.co/vendor/7572/3_2/1280/jpg/4j3a3926_10_97572_v1.webp'

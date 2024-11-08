@@ -1,5 +1,7 @@
 'use client';
 
+// Utilizo 'use client' para utilizar el hook useState de React.
+// En NextJs los archivos de app se interpretan por defecto como componentes de servidor
 import React, { useState } from 'react';
 import Image from 'next/image';
 

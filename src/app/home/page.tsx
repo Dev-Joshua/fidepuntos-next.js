@@ -1,5 +1,3 @@
-'use client';
-
 import ColumnInfoRigth from '@/components/ColumnInfoRigth';
 import ColumnInfoLeft from '@/components/ColumnInfoLeft';
 

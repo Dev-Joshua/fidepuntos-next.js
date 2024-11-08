@@ -4,6 +4,7 @@ import { monserrat } from './fonts';
 
 import './globals.css';
 
+// Estructura principal de la aplicación
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +17,7 @@ export default function RootLayout({
       </head>
       <body className={`${monserrat.className} antialiased `}>
         <Navbar />
-
+        {/* Page.tsx */}
         <main className='pt-24'>{children}</main>
         <Footer />
       </body>

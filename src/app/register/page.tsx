@@ -2,13 +2,13 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <div className='bg-center bg-cover py-5 my-5 bg-fixed mx-auto relative h-screen'>
+    <div className='bg-center bg-cover  py-5 my-5 bg-fixed mx-auto w-full relative'>
       <Image
         className='rounded-2xl object-cover w-full'
         src='https://cdn0.matrimonio.com.co/vendor/7572/3_2/1280/jpg/4j3a3926_10_97572_v1.webp'
         alt='fondo-login'
-        fill
-        style={{ objectFit: 'cover' }}
+        width={1280}
+        height={850}
       />
       <div
         className=''
@@ -26,15 +26,14 @@ export default function Page() {
           right: '0',
           bottom: '10%',
           maxWidth: '36rem',
-          height: '220vh',
+          minHeight: '90vh',
           backdropFilter: 'blur(12px)',
         }}
       >
-        <div className='flex flex-col  justify-center px-6 py-12 lg:px-8 '>
+        <div className='flex flex-col justify-center px-6 py-12 lg:px-8 '>
           <div className='sm:mx-auto sm:w-full sm:max-w-xl'>
             <h2 className='text-center'>Formulario de registro</h2>
           </div>
-
           <div className='mt-10 sm:mx-auto sm:w-full sm:max-w-xl'>
             <form className='space-y-6 h-full'>
               <fieldset>
@@ -298,7 +297,7 @@ export default function Page() {
                         </filter>
                       </defs>
                     </svg>
-                    +1{' '}
+                    +1
                     <svg
                       className='w-2.5 h-2.5 ms-2.5'
                       aria-hidden='true'
@@ -1031,7 +1030,7 @@ export default function Page() {
                         </filter>
                       </defs>
                     </svg>
-                    +1{' '}
+                    +1
                     <svg
                       className='w-2.5 h-2.5 ms-2.5'
                       aria-hidden='true'
@@ -1866,13 +1865,13 @@ export default function Page() {
                     className='fidecheckbox'
                   />
                   <label className='ms-4 text-xs font-medium text-colortres dark:text-colortresdark'>
-                    He leído y acepto los{' '}
+                    He leído y acepto los
                     <a
                       href='https://movichdreams.com/terminos.php'
                       className='text-coloruno hover:underline dark:text-colorunodark'
                     >
                       Términos y Condiciones
-                    </a>{' '}
+                    </a>
                     del programa y la Política de Privacidad.
                   </label>
                 </div>

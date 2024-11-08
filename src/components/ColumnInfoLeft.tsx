@@ -5,6 +5,7 @@ import TabsContent from './TabsContent';
 import Carousel from './Carousel';
 
 export default function TabsHome() {
+  // Defino el estado para seleccionar las pestañas y luego pasarlo como props al componente TabsContent
   const [selectedTab, setSelectedTab] = useState('alojamiento');
 
   const handleTabClick = (tab: string) => {
